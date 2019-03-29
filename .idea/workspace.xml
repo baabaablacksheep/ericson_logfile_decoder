@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="104" />
+    <option name="y" value="-4" />
+    <option name="width" value="1851" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../Binary_Template_Decoder_NoTowerDetails/binary-template-decoder" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Mobile_User_Location_Update/location-update" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Mobile_User_Location_Update_Creative/location-update" value="PREVIEW" />
+        <entry key="$USER_HOME$/My_Projects/LocationUpdateCreativeCluster/location-update" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+</project>
