@@ -2,23 +2,23 @@ object MainApp extends App{
 
   //Reading the Binary File
   val binaryFile = BinaryFileReader.getHexBinary()
-  var binaryFilePointer:Int =1
+  var binaryFilePointer:Int =0
   var eventNum:Int=0
 
+
   def traverseBinary(): Unit ={
-    val eventLength:Int=binaryFile(binaryFilePointer)
+    val eventLength:Int= getEventLength(binaryFile.slice(binaryFilePointer,binaryFilePointer+2))
     val eventBodyArr:Array[Short]=binaryFile.slice(binaryFilePointer,binaryFilePointer+eventLength)
-
-    println("Event Num : " + eventNum)
-    println("Event Length : "+eventLength)
-
-
-    val binaryString : String = toBinaryStringConverter(eventBodyArr)
-    EventHeadDecoder.decodeEventHead(binaryString)
+//    val eventBodyStr: String = binaryString.substring(binaryFilePointer,binaryFilePointer+eventLength)
 
     eventNum+=1
     binaryFilePointer=binaryFilePointer+eventLength
 
+    println("Event Num : " + eventNum)
+    println("Event Length : "+eventLength)
+    print("Event Binary : ")
+    eventBodyArr.foreach(print)
+    println()
 
   }
 
@@ -33,11 +33,26 @@ object MainApp extends App{
     }
 
     // Convert StringBuilder to a string.
-    val result = builder.toString()
+    val result = builder.toString
     result
 
   }
 
-  1 to 10 foreach { _=> traverseBinary() }
+  def toDecimalConverter(binaryStr: String): Int ={
+    Integer.parseInt(binaryStr,2)
+  }
+
+  def getEventLength(lengthValArr: Array[Short]): Int ={
+
+    if(lengthValArr.length>0){
+      val lengthBinary:String = toBinaryStringConverter(lengthValArr)
+      toDecimalConverter(lengthBinary)
+    }
+    else{
+      0
+    }
+  }
+
+  1 to 100 foreach { _=> traverseBinary() }
 
 }

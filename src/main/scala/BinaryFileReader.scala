@@ -1,3 +1,4 @@
+import java.io.FileReader
 import java.nio.file.{Files, Path, Paths}
 
 object BinaryFileReader {
