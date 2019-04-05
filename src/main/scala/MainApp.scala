@@ -7,18 +7,17 @@ object MainApp extends App{
 
 
   def traverseBinary(): Unit ={
-    val eventLength:Int= getEventLength(binaryFile.slice(binaryFilePointer,binaryFilePointer+2))
-    val eventBodyArr:Array[Short]=binaryFile.slice(binaryFilePointer,binaryFilePointer+eventLength)
-//    val eventBodyStr: String = binaryString.substring(binaryFilePointer,binaryFilePointer+eventLength)
+    val eventLength:Int = getEventLength(binaryFile.slice(binaryFilePointer,binaryFilePointer+2))
+    val eventBodyArr:Array[Short] = binaryFile.slice(binaryFilePointer,binaryFilePointer+eventLength)
+    val eventBinaryString: String = toBinaryStringConverter(eventBodyArr)
 
-    eventNum+=1
-    binaryFilePointer=binaryFilePointer+eventLength
-
+    println("===========================================================")
     println("Event Num : " + eventNum)
-    println("Event Length : "+eventLength)
-    print("Event Binary : ")
-    eventBodyArr.foreach(print)
-    println()
+
+    EventDecoder.decodeEventHead(eventBinaryString)
+
+    binaryFilePointer=binaryFilePointer+eventLength
+    eventNum+=1
 
   }
 
@@ -53,6 +52,6 @@ object MainApp extends App{
     }
   }
 
-  1 to 100 foreach { _=> traverseBinary() }
+  1 to 5 foreach { _=> traverseBinary() }
 
 }

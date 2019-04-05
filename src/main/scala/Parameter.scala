@@ -1,0 +1,1 @@
+case class Parameter(paramName: String, paramValidity: String, numBits: Int, value: Either[Long,String])

@@ -4,7 +4,7 @@
 		module="ericson_logfile_decoder-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190402170415"
+		publication="20190403120038"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
